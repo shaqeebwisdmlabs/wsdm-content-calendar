@@ -40,20 +40,10 @@ class Wsdm_Content_Calendar_Activator
 			`post_title` varchar(255) NOT NULL,
 			`occassion` varchar(100) NOT NULL,
 			`author` varchar(100) NOT NULL,
-			`reviewer` varchar(100) NOT NULL
+			`reviewer` varchar(100) NOT NULL,
 			`date` date NOT NULL
 		  ) ENGINE='MyISAM';";
 
 		$wpdb->query($sql);
-
-		// $data = array(
-		// 	'post_title' => 'test',
-		// 	'occassion' => 'test',
-		// 	'author' => 'test',
-		// 	'reviewer' => 'test',
-		// 	'date' => '10/04/2023',
-		// );
-
-		// $wpdb->insert($wp_content_calendar, $data);
 	}
 }
