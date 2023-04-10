@@ -26,6 +26,12 @@
  */
 
 // If uninstall not called from WordPress, then exit.
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+if (!defined('WP_UNINSTALL_PLUGIN')) {
 	exit;
 }
+
+global $wpdb, $table_prefix;
+$wp_content_calendar = $table_prefix . 'content_calendar';
+
+$sql = "DROP TABLE `$wp_content_calendar`;";
+$wpdb->query($sql);

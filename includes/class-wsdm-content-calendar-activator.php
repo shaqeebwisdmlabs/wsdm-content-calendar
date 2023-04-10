@@ -20,7 +20,8 @@
  * @subpackage Wsdm_Content_Calendar/includes
  * @author     Shaqeeb Akhtar <shaqeeb.akhtar@wisdmlabs.com>
  */
-class Wsdm_Content_Calendar_Activator {
+class Wsdm_Content_Calendar_Activator
+{
 
 	/**
 	 * Short Description. (use period)
@@ -29,8 +30,30 @@ class Wsdm_Content_Calendar_Activator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function activate() {
+	public static function activate()
+	{
+		global $wpdb, $table_prefix;
+		$wp_content_calendar = $table_prefix . 'content_calendar';
 
+		$sql = "CREATE TABLE IF NOT EXISTS `$wp_content_calendar` (
+			`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+			`post_title` varchar(255) NOT NULL,
+			`occassion` varchar(100) NOT NULL,
+			`author` varchar(100) NOT NULL,
+			`reviewer` varchar(100) NOT NULL
+			`date` date NOT NULL
+		  ) ENGINE='MyISAM';";
+
+		$wpdb->query($sql);
+
+		// $data = array(
+		// 	'post_title' => 'test',
+		// 	'occassion' => 'test',
+		// 	'author' => 'test',
+		// 	'reviewer' => 'test',
+		// 	'date' => '10/04/2023',
+		// );
+
+		// $wpdb->insert($wp_content_calendar, $data);
 	}
-
 }

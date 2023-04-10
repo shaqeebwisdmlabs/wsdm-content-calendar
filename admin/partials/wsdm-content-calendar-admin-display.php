@@ -11,9 +11,12 @@
  * @package    Wsdm_Content_Calendar
  * @subpackage Wsdm_Content_Calendar/admin/partials
  */
+
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
+
+
 
 <div class="wrap">
     <h1>Plan Content</h1>

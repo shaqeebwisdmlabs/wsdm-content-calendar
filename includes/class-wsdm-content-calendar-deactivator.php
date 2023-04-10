@@ -20,7 +20,8 @@
  * @subpackage Wsdm_Content_Calendar/includes
  * @author     Shaqeeb Akhtar <shaqeeb.akhtar@wisdmlabs.com>
  */
-class Wsdm_Content_Calendar_Deactivator {
+class Wsdm_Content_Calendar_Deactivator
+{
 
 	/**
 	 * Short Description. (use period)
@@ -29,8 +30,12 @@ class Wsdm_Content_Calendar_Deactivator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function deactivate() {
+	public static function deactivate()
+	{
+		global $wpdb, $table_prefix;
+		$wp_content_calendar = $table_prefix . 'content_calendar';
 
+		$sql = "TRUNCATE `$wp_content_calendar`;";
+		$wpdb->query($sql);
 	}
-
 }
