@@ -16,6 +16,25 @@
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 
+<?php
+
+global $wpdb, $table_prefix;
+$wp_content_calendar = $table_prefix . 'content_calendar';
+
+if (isset($_POST['submit'])) {
+    if (isset($_POST['publishingdate']) && isset($_POST['occasion']) && isset($_POST['posttitle']) && isset($_POST['post_author']) && isset($_POST['post_reviewer'])) {
+        $wpdb->insert($wp_content_calendar, array(
+            'post_title' => esc_sql($_POST['posttitle']),
+            'date' => esc_sql($_POST['publishingdate']),
+            'occassion' => esc_sql($_POST['occasion']),
+            'author' => esc_sql($_POST['post_author']),
+            'reviewer' => esc_sql($_POST['post_reviewer']),
+        ));
+    }
+}
+
+
+?>
 
 
 <div class="wrap">
@@ -25,6 +44,13 @@
         <table class="form-table" role="presentation">
 
             <tbody>
+
+                <tr>
+                    <th scope="row"><label for="posttitle">Post Title</label></th>
+                    <td><input name="posttitle" type="text" id="posttitle" placeholder="The Post Title" class="regular-text">
+                    </td>
+                </tr>
+
                 <tr>
                     <th scope="row"><label for="publishingdate">Publishing Date</label></th>
                     <td><input name="publishingdate" type="date" id="publishingdate" class="regular-text">
@@ -36,12 +62,6 @@
                     <td><input name="occasion" type="text" id="occasion" placeholder="Holi" class="regular-text">
                         <p class="description" id="occasion-description">In what occasion the post will be published.
                         </p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th scope="row"><label for="posttitle">Post Title</label></th>
-                    <td><input name="posttitle" type="text" id="posttitle" placeholder="The Post Title" class="regular-text">
                     </td>
                 </tr>
 
@@ -71,6 +91,7 @@
                             ?>
                         </select></td>
                 </tr>
+
             </tbody>
         </table>
         <p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="Add New Post">

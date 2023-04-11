@@ -119,13 +119,4 @@ class Wsdm_Content_Calendar_Admin
 	{
 		require_once 'partials/content-calendar.php';
 	}
-
-	// public function wsdm_register_calendar_settings()
-	// {
-	// 	register_setting('content_calendar', 'publishingdate');
-	// 	register_setting('content_calendar', 'occasion');
-	// 	register_setting('content_calendar', 'posttitle');
-	// 	register_setting('content_calendar', 'post_author');
-	// 	register_setting('content_calendar', 'post_reviewer');
-	// }
 }
